@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Deploy to Vercel
+      uses: vercel/actions/cli@master
+      with:
+        args: deploy
