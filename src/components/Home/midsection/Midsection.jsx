@@ -10,9 +10,9 @@ const midsection = () => {
     <div>
       <div>
         <h1 className="headerMid">
-          Easily and quickly transfer money to anyone  ...testing
+          Easily and quickly transfer money to anyone 
         </h1>
-        <p>this is a test text</p>
+        <h1>hello can you seee me</h1>
         <div className="glowDivMain">
           <GlowDiv
             img={fastIcon}
