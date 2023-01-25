@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+
+* html {
+  padding: 0;
+  background-color: black;
+  color: white;
+  box-sizing: border-box;
+  font-smooth: subpixel-antialiased;
+}
+
+body {
+  background-color: black;
+  color: white;
+  margin:  0;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F5F5F5; 
+}
+::-webkit-scrollbar-thumb {
+    background-color: purple; 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-button {
+    background-color: #00ff2a;
+}
+input{
+  color: black;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

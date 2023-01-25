@@ -1,0 +1,40 @@
+.headerMid {
+  font-size: 40px;
+  line-height: 65px;
+  text-align: center;
+  margin-bottom: 100px;
+}
+.glowDivMain {
+  display: flex;
+  justify-content: space-evenly;
+}
+.glowDiv {
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.glowDivImgDiv {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #682bd7;
+}
+.glowDivImg {
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50px;
+  height: 70px;
+}
+
+.portMainDiv {
+  margin: 50px 0px 0px 0px;
+}
+.portDiv {
+  display: flex;
+  flex-direction: row;
+}
