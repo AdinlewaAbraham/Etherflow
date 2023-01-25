@@ -12,7 +12,6 @@ const midsection = () => {
         <h1 className="headerMid">
           Easily and quickly transfer money to anyone 
         </h1>
-        <h1>hello can you seee me</h1>
         <div className="glowDivMain">
           <GlowDiv
             img={fastIcon}
