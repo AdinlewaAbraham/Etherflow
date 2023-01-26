@@ -1,9 +1,22 @@
 import React from "react";
 import "../midsection/midsection.css";
-import GlowDiv from "./GlowDiv";
 import SecureImg from "../../imgs/security.svg";
 import ReliabilityImg from "../../imgs/Reliability.png";
 import fastIcon from "../../imgs/clock.png";
+
+const GlowDiv = (p) => {
+  return (
+    <div className="glowDiv">
+      <div className="glowDivImgDiv" >
+        <img className="glowDivImg" src={p.img} alt=""/>
+      </div>
+      <div>
+        <h4>{p.header}</h4>
+        <p>{p.desc}</p>
+      </div>
+    </div>
+  );
+};
 
 const midsection = () => {
   return (
@@ -16,17 +29,17 @@ const midsection = () => {
           <GlowDiv
             img={fastIcon}
             header="Fast"
-            desc="Send stuff very fast."
+            desc="Speedy crypto transfer with our platform."
           />
           <GlowDiv
             img={SecureImg}
             header="Secure"
-            desc="With wallet pairing send cryto safely."
+            desc="Secure crypto transfer with Metamask pairing."
           />
           <GlowDiv
             img={ReliabilityImg}
             header="Reliable"
-            desc="we never disappoint with 24hr service."
+            desc="Dependable crypto transfer with our platform."
           />
         </div>
       </div>

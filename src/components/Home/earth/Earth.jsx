@@ -21,14 +21,14 @@ const earth = () => {
     >
       <React3dEarth
         style={{
-          width: "510px",
-          height: "500px",
+          width: "472px",
+          height: "480px",
           //position: "absolute",
           zIndex: "1",
           //top: "10px",
         }}
         config={{
-          radius: 21,
+          radius: 20,
           // mobileRadius: 20,
           backgroundColor: "black",
            flagScale:0,

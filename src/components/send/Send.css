@@ -494,7 +494,12 @@ input.sendformcheckbox::before{
   background-color: purple;
   margin-top: 10px;
 }
-/* overflow */
-/* flexdiv */
-/* walletdetails */
-/* select */
+
+.notransactions{
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+}

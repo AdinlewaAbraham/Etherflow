@@ -13,7 +13,7 @@ import {
   getDocs,
 } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-import { useContext, useState, useCallback, useEffect } from "react";
+import { useContext, useState, useCallback, useEffect, useRef } from "react";
 import { TransactionContext } from "../../context/TransactionContext";
 import ContactComp from "./ContactComp";
 import { motion, AnimatePresence } from "framer-motion";
@@ -157,17 +157,22 @@ const Contact = () => {
   const handleChangee = (event) => {
     setorderby(event.target.value);
   };
+  const contactRef = useRef(null);
   const { setaddressTo, setreceiverName } = useContext(TransactionContext);
   const handleTransaction = (e) => {
     setaddressTo(e.target.name);
     setreceiverName(e.target.id);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    contactRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
   };
   const navigate = useNavigate();
 
   return (
     <AnimatePresence>
-      <div className="contact">
+      <div className="contact" ref={contactRef}>
         {!isUserSignedIn ? (
           <div className="notsignedin">
             <div>
@@ -279,7 +284,13 @@ const Contact = () => {
                 </label>
               </motion.div>
             )}
-            <div className="contactlist" style={{ overflowY: Object.keys(contacts).length <= 5 ? 'hidden' : 'scroll' }}>
+            <div
+              className="contactlist"
+              style={{
+                overflowY:
+                  Object.keys(contacts).length <= 5 ? "hidden" : "scroll",
+              }}
+            >
               {Object.keys(contacts).length === 0 && (
                 <div className="nocontactmessage">
                   <img src={Addcontacct} alt="" />

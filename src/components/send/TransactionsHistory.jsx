@@ -169,7 +169,7 @@ const TransactionsHistory = () => {
       return sortOrder === "asc" ? a.amount - b.amount : b.amount - a.amount;
     }
   });
-  
+
   const [conversionRate, setConversionRate] = useState();
   const [Loading, setLoading] = useState(false);
   useEffect(() => {
@@ -190,177 +190,192 @@ const TransactionsHistory = () => {
   });
   return (
     <div className="transactions">
-      <div className="transactionsover" style={{ overflowY: Object.keys(sortedMappedData).length <= 4 ? 'hidden' : 'scroll' }}>
+      <div
+        className="transactionsover"
+        style={{
+          overflowY:
+            Object.keys(sortedMappedData).length <= 4 ? "hidden" : "scroll",
+        }}
+      >
         {!currentAccount ? (
-          <h1 className="connectWallet">Connect your account to see your transactions History</h1>
+          <h1 className="connectWallet">
+            Connect your account to see your transactions History
+          </h1>
         ) : (
-        <div>
-          <table className="transactiontable">
-            <thead>
-              <tr>
-                <th>From</th>
-                <th>To</th>
-                <th>Type</th>
-                
-                <th>
-                  <div className="th">
-                    Amount (ETH){" "}
-                    <div className="thcoloum">
-                      <span
-                        style={{
-                          color:
-                            sortType == "amount" && sortOrder == "asc"
-                              ? "purple "
-                              : "white",
-                        }}
-                        onClick={() => {
-                          setSortType("amount");
-                          setSortOrder("asc");
-                        }}
-                      >
-                        &#x25B2;
-                      </span>{" "}
-                      <span
-                        style={{
-                          color:
-                            sortType == "amount" && sortOrder == "desc"
-                              ? "purple "
-                              : "white",
-                        }}
-                        onClick={() => {
-                          setSortType("amount");
-                          setSortOrder("desc");
-                        }}
-                      >
-                        &#x25BC;
-                      </span>
-                    </div>
-                  </div>
-                </th>
-                <th>
-                  Amount(USD)
-                </th>
-                <th>
-                  <div className="th">
-                    Date{" "}
-                    <div className="thcoloum">
-                      <span
-                        style={{
-                          color:
-                            sortType == "date" && sortOrder == "asc"
-                              ? "purple "
-                              : "white",
-                        }}
-                        onClick={() => {
-                          setSortType("date");
-                          setSortOrder("asc");
-                        }}
-                      >
-                        &#x25B2;
-                      </span>{" "}
-                      <span
-                        style={{
-                          color:
-                            sortType == "date" && sortOrder !== "asc"
-                              ? "purple "
-                              : "white",
-                        }}
-                        onClick={() => {
-                          setSortType("date");
-                          setSortOrder("desc");
-                        }}
-                      >
-                        &#x25BC;
-                      </span>
-                    </div>
-                  </div>
-                </th>
-              </tr>
-            </thead> 
-            <tbody className="transactionrowhover" >
-              {sortedMappedData.map((transaction) => (
-                <tr key={transaction.timestamp} className="transactionrow">
-                  <td className="address">
-                    <div className="addressfirst">
-                      <img
-                        src={CopyImg}
-                        alt=""
-                        onClick={async () => {
-                          try {
-                            await navigator.clipboard.writeText(
-                              transaction.addressFrom
-                            );
-                            console.log("Text copied to clipboard");
-                          } catch (err) {
-                            console.error("Failed to copy text: ", err);
-                          }
-                        }}
-                      />
-                      <a
-                        href={`https://goerli.etherscan.io/address/${transaction.addressFrom}`}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {shortenAddress(transaction.addressFrom)}
-                      </a>
-                    </div>
-                  </td>
-                  <td className="address">
-                    <div className="addressfirst">
-                      <img
-                        src={CopyImg}
-                        alt=""
-                        onClick={async () => {
-                          try {
-                            await navigator.clipboard.writeText(
-                              transaction.addressTo
-                            );
-                            console.log("Text copied to clipboard");
-                          } catch (err) {
-                            console.error("Failed to copy text: ", err);
-                          }
-                        }}
-                      />
-                      <a
-                        href={`https://goerli.etherscan.io/address/${transaction.addressTo}`}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {shortenAddress(transaction.addressTo)}
-                      </a>
-                    </div>
-                  </td>
-                  <td>
-                    {transaction.type === "sent" ? (
-                      <div className="red">sent</div>
-                    ) : (
-                      <div className="green">Receive</div>
-                    )}
-                  </td>
-                  <td
-                    style={{
-                      color: `${transaction.type === "sent" ? "red" : "green"}`,
-                    }}
-                  >
-                    {`${transaction.type === "sent" ? "-" : "+"}`}
-                    {transaction.amount}
-                  </td>
-                  <td
-                    style={{
-                      color: `${transaction.type === "sent" ? "red" : "green"}`,
-                    }}
-                  >
-                    {`${transaction.type === "sent" ? "-" : "+"}`}
-                    {formatter.format(transaction.amount * conversionRate)}
-                  </td>
-                  <td>{transaction.timestamp}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        )}
+          <div>
+            <table className="transactiontable">
+              <thead>
+                <tr>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Type</th>
 
+                  <th>
+                    <div className="th">
+                      Amount (ETH){" "}
+                      <div className="thcoloum">
+                        <span
+                          style={{
+                            color:
+                              sortType == "amount" && sortOrder == "asc"
+                                ? "purple "
+                                : "white",
+                          }}
+                          onClick={() => {
+                            setSortType("amount");
+                            setSortOrder("asc");
+                          }}
+                        >
+                          &#x25B2;
+                        </span>{" "}
+                        <span
+                          style={{
+                            color:
+                              sortType == "amount" && sortOrder == "desc"
+                                ? "purple "
+                                : "white",
+                          }}
+                          onClick={() => {
+                            setSortType("amount");
+                            setSortOrder("desc");
+                          }}
+                        >
+                          &#x25BC;
+                        </span>
+                      </div>
+                    </div>
+                  </th>
+                  <th>Amount(USD)</th>
+                  <th>
+                    <div className="th">
+                      Date{" "}
+                      <div className="thcoloum">
+                        <span
+                          style={{
+                            color:
+                              sortType == "date" && sortOrder == "asc"
+                                ? "purple "
+                                : "white",
+                          }}
+                          onClick={() => {
+                            setSortType("date");
+                            setSortOrder("asc");
+                          }}
+                        >
+                          &#x25B2;
+                        </span>{" "}
+                        <span
+                          style={{
+                            color:
+                              sortType == "date" && sortOrder !== "asc"
+                                ? "purple "
+                                : "white",
+                          }}
+                          onClick={() => {
+                            setSortType("date");
+                            setSortOrder("desc");
+                          }}
+                        >
+                          &#x25BC;
+                        </span>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="transactionrowhover">
+                {sortedMappedData.length !== 0 ? (
+                  <div className="notransactions">
+                    <h1>You currently have no transactions.</h1>
+                  </div>
+                ) : (
+                  sortedMappedData.map((transaction) => (
+                    <tr key={transaction.timestamp} className="transactionrow">
+                      <td className="address">
+                        <div className="addressfirst">
+                          <img
+                            src={CopyImg}
+                            alt=""
+                            onClick={async () => {
+                              try {
+                                await navigator.clipboard.writeText(
+                                  transaction.addressFrom
+                                );
+                                console.log("Text copied to clipboard");
+                              } catch (err) {
+                                console.error("Failed to copy text: ", err);
+                              }
+                            }}
+                          />
+                          <a
+                            href={`https://goerli.etherscan.io/address/${transaction.addressFrom}`}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {shortenAddress(transaction.addressFrom)}
+                          </a>
+                        </div>
+                      </td>
+                      <td className="address">
+                        <div className="addressfirst">
+                          <img
+                            src={CopyImg}
+                            alt=""
+                            onClick={async () => {
+                              try {
+                                await navigator.clipboard.writeText(
+                                  transaction.addressTo
+                                );
+                                console.log("Text copied to clipboard");
+                              } catch (err) {
+                                console.error("Failed to copy text: ", err);
+                              }
+                            }}
+                          />
+                          <a
+                            href={`https://goerli.etherscan.io/address/${transaction.addressTo}`}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {shortenAddress(transaction.addressTo)}
+                          </a>
+                        </div>
+                      </td>
+                      <td>
+                        {transaction.type === "sent" ? (
+                          <div className="red">sent</div>
+                        ) : (
+                          <div className="green">Receive</div>
+                        )}
+                      </td>
+                      <td
+                        style={{
+                          color: `${
+                            transaction.type === "sent" ? "red" : "green"
+                          }`,
+                        }}
+                      >
+                        {`${transaction.type === "sent" ? "-" : "+"}`}
+                        {transaction.amount}
+                      </td>
+                      <td
+                        style={{
+                          color: `${
+                            transaction.type === "sent" ? "red" : "green"
+                          }`,
+                        }}
+                      >
+                        {`${transaction.type === "sent" ? "-" : "+"}`}
+                        {formatter.format(transaction.amount * conversionRate)}
+                      </td>
+                      <td>{transaction.timestamp}</td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     </div>
   );

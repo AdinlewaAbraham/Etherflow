@@ -1,7 +1,7 @@
 .main{
   display: flex;
   align-items: center;
-  margin: 120px 100px 150px 100px;
+  margin: 120px 90px 150px 90px;
 }
 .flexRow {
   display: flex;
@@ -14,8 +14,8 @@
 }
 .description {
   width: 616px;
-  margin-right: 50px;
   user-select: none;
+  margin-right: 20px;
 }
 .header {
   font-size: 60px;
@@ -67,4 +67,7 @@
   border-radius: 100px;
   opacity: 0.5;
   filter: blur(70px);
+}
+.earth{
+  margin-right: 90px;
 }

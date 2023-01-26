@@ -15,6 +15,10 @@
   flex-direction: column;
   justify-content: center;
 }
+.glowDiv p {
+  color: grey;
+  width: 200px;
+}
 .glowDivImgDiv {
   height: 80px;
   width: 80px;
