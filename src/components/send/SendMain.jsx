@@ -15,21 +15,21 @@ const SendMain = () => {
         <WalletBalance />
       </div>
       <div>
-        <h1 className="senddivlabel">Chart</h1>
+        <h1 className="senddivlabel">Transactions Chart</h1>
         <Chart />
       </div>
       <div className="flexdiv">
         <div className="sendformdiv">
-          <h1 className="senddivlabel">Form</h1>
+          <h1 className="senddivlabel">Transfer Form</h1>
           <SendForm />
         </div>
         <div className="contactdiv">
-          <h1 className="senddivlabel">Contacts</h1>
+          <h1 className="senddivlabel">Beneficiaries</h1>
           <Contact />
         </div>
       </div>
       <div className="TransactionsHistorydiv">
-        <h1 className="senddivlabel">Recent Transactions</h1>
+        <h1 className="senddivlabel">Transaction History </h1>
         <TransactionsHistory />
       </div>
       <p style={{color: "rgb(26, 22, 22)"}}> you cant see me</p>

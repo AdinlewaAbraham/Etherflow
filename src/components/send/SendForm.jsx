@@ -106,7 +106,6 @@ const SendForm = () => {
     receiverName,
     setaddressTo,
     setamount,
-    settransactionDescription,
     setreceiverName,
   } = useContext(TransactionContext);
 
@@ -124,10 +123,10 @@ const SendForm = () => {
     checkUsersCallback();
   }, [checkUsersCallback]);
 
-  if  (typeof amount !== "string") {
+  if (typeof amount !== "string") {
     setamount(amount.toString());
   } else {
-     setamount(amount);
+    setamount(amount);
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -256,15 +255,6 @@ const SendForm = () => {
           }}
         />
         <input
-          placeholder="transactionDescription"
-          name="transactionDescription"
-          type="text"
-          value={transactionDescription}
-          onChange={(e) => {
-            settransactionDescription(e.target.value);
-          }}
-        />
-        <input
           placeholder="Enter receiverName"
           name="receiverName"
           type="text"
@@ -274,19 +264,24 @@ const SendForm = () => {
           }}
         />
         {isLoading ? (
-          <CircularProgress
-            style={{ color: "purple" }}
-            size={100}
-            thickness={1}
-          />
+          <div
+            style={{
+              margin: "auto",
+              color: "purple",
+              paddingTop:"15px"
+            }}
+          >
+            <CircularProgress size={200} thickness={1} />
+          </div>
         ) : !currentAccount ? (
           <button type="button" onClick={connectWallet}>
             Connect Wallet
           </button>
         ) : (
           <div>
-            <label>save this beneficary</label>
+            <label>Save this beneficiary</label>
             <input
+              style={{ borderRadius: "5px" }}
               className="sendformcheckbox"
               type="checkbox"
               checked={isChecked}

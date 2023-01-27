@@ -3,7 +3,7 @@
   background-color: rgb(26, 22, 22);
 }
 .walletchart {
-  height: 300px;
+  height: 340px;
   background-color: black;
   padding: 10px 20px;
   margin-bottom: 20px;
@@ -14,6 +14,7 @@
   height: 600px;
   margin-bottom: 50px;
 }
+/* th */
 .sendformdiv {
   width: 70%;
   height: 100%;
@@ -60,6 +61,15 @@
   width: 30%;
   height: 100%;
   margin-left: 30px;
+}
+div.contact::-webkit-scrollbar {
+  width: 0.01px;
+  background-color: black;
+}
+
+div.contact::-webkit-scrollbar-thumb {
+  background-color: black;
+  color: rgba(54, 162, 235, 0.2);
 }
 .contact {
   padding: 20px;
@@ -116,11 +126,16 @@
   justify-content: flex-start;
   align-items: center;
 }
+th {
+  text-align: left;
+  padding: 0px 20px;
+}
 .thcoloum {
   display: flex;
   flex-direction: column;
   margin-left: 10px;
 }
+/* walletchart */
 .thcoloum span {
   cursor: pointer;
 }
@@ -137,8 +152,17 @@
   padding: 20px;
 }
 .transactionsover {
-  height: 300px;
+  max-height: 600px;
   overflow-y: scroll;
+}
+.transactionsover::-webkit-scrollbar {
+  width: 10px;
+  background-color: black;
+}
+
+.transactionsover::-webkit-scrollbar-thumb {
+  background-color: rgb(97, 93, 93);
+  color: rgba(54, 162, 235, 0.2);
 }
 .transactiontable {
   width: 100%;

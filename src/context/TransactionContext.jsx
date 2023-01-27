@@ -22,7 +22,7 @@ const createEthereumContract = () => {
 export const TransactionsProvider = ({ children }) => {
   const [addressTo, setaddressTo] = useState("");
   const [amount, setamount] = useState("");
-  const [transactionDescription, settransactionDescription] = useState("");
+  const [transactionDescription, settransactionDescription] = useState(".");
   const [receiverName, setreceiverName] = useState("");
 
   const [currentAccount, setCurrentAccount] = useState("");

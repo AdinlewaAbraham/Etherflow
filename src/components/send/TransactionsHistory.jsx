@@ -56,7 +56,7 @@ export const Chart = () => {
   }, [account, transactions]);
   return (
     <div className="walletchart">
-      <Line
+      <Line 
         data={{
           labels: mappedData.map((data) => data.x),
           datasets: [
@@ -89,7 +89,7 @@ export const Chart = () => {
           plugins: {
             // 'legend' now within object 'plugins {}'
             legend: {
-              // display: false,
+              display: false,
             },
           },
           scales: {
@@ -194,7 +194,7 @@ const TransactionsHistory = () => {
         className="transactionsover"
         style={{
           overflowY:
-            Object.keys(sortedMappedData).length <= 4 ? "hidden" : "scroll",
+            Object.keys(sortedMappedData).length <= 10 ? "hidden" : "scroll",
         }}
       >
         {!currentAccount ? (
@@ -203,93 +203,95 @@ const TransactionsHistory = () => {
           </h1>
         ) : (
           <div>
-            <table className="transactiontable">
-              <thead>
-                <tr>
-                  <th>From</th>
-                  <th>To</th>
-                  <th>Type</th>
+            {sortedMappedData.length === 0 ? (
+              <div className="notransactions">
+                <h1>You currently have no transactions.</h1>
+              </div>
+            ) : (
+              <table className="transactiontable">
+                <thead>
+                  <tr>
+                    <th>
+                      <div>From</div>{" "}
+                    </th>
+                    <th>To</th>
+                    <th>Type</th>
 
-                  <th>
-                    <div className="th">
-                      Amount (ETH){" "}
-                      <div className="thcoloum">
-                        <span
-                          style={{
-                            color:
-                              sortType == "amount" && sortOrder == "asc"
-                                ? "purple "
-                                : "white",
-                          }}
-                          onClick={() => {
-                            setSortType("amount");
-                            setSortOrder("asc");
-                          }}
-                        >
-                          &#x25B2;
-                        </span>{" "}
-                        <span
-                          style={{
-                            color:
-                              sortType == "amount" && sortOrder == "desc"
-                                ? "purple "
-                                : "white",
-                          }}
-                          onClick={() => {
-                            setSortType("amount");
-                            setSortOrder("desc");
-                          }}
-                        >
-                          &#x25BC;
-                        </span>
+                    <th>
+                      <div className="th">
+                        Amount (ETH){" "}
+                        <div className="thcoloum">
+                          <span
+                            style={{
+                              color:
+                                sortType == "amount" && sortOrder == "asc"
+                                  ? "purple "
+                                  : "white",
+                            }}
+                            onClick={() => {
+                              setSortType("amount");
+                              setSortOrder("asc");
+                            }}
+                          >
+                            &#x25B2;
+                          </span>{" "}
+                          <span
+                            style={{
+                              color:
+                                sortType == "amount" && sortOrder == "desc"
+                                  ? "purple "
+                                  : "white",
+                            }}
+                            onClick={() => {
+                              setSortType("amount");
+                              setSortOrder("desc");
+                            }}
+                          >
+                            &#x25BC;
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  </th>
-                  <th>Amount(USD)</th>
-                  <th>
-                    <div className="th">
-                      Date{" "}
-                      <div className="thcoloum">
-                        <span
-                          style={{
-                            color:
-                              sortType == "date" && sortOrder == "asc"
-                                ? "purple "
-                                : "white",
-                          }}
-                          onClick={() => {
-                            setSortType("date");
-                            setSortOrder("asc");
-                          }}
-                        >
-                          &#x25B2;
-                        </span>{" "}
-                        <span
-                          style={{
-                            color:
-                              sortType == "date" && sortOrder !== "asc"
-                                ? "purple "
-                                : "white",
-                          }}
-                          onClick={() => {
-                            setSortType("date");
-                            setSortOrder("desc");
-                          }}
-                        >
-                          &#x25BC;
-                        </span>
+                    </th>
+                    <th>Amount(USD)</th>
+                    <th>
+                      <div className="th">
+                        Date{" "}
+                        <div className="thcoloum">
+                          <span
+                            style={{
+                              color:
+                                sortType == "date" && sortOrder == "asc"
+                                  ? "purple "
+                                  : "white",
+                            }}
+                            onClick={() => {
+                              setSortType("date");
+                              setSortOrder("asc");
+                            }}
+                          >
+                            &#x25B2;
+                          </span>{" "}
+                          <span
+                            style={{
+                              color:
+                                sortType == "date" && sortOrder !== "asc"
+                                  ? "purple "
+                                  : "white",
+                            }}
+                            onClick={() => {
+                              setSortType("date");
+                              setSortOrder("desc");
+                            }}
+                          >
+                            &#x25BC;
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="transactionrowhover">
-                {sortedMappedData.length !== 0 ? (
-                  <div className="notransactions">
-                    <h1>You currently have no transactions.</h1>
-                  </div>
-                ) : (
-                  sortedMappedData.map((transaction) => (
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="transactionrowhover">
+                  {sortedMappedData.map((transaction) => (
                     <tr key={transaction.timestamp} className="transactionrow">
                       <td className="address">
                         <div className="addressfirst">
@@ -370,10 +372,10 @@ const TransactionsHistory = () => {
                       </td>
                       <td>{transaction.timestamp}</td>
                     </tr>
-                  ))
-                )}
-              </tbody>
-            </table>
+                  ))}
+                </tbody>
+              </table>
+            )}
           </div>
         )}
       </div>

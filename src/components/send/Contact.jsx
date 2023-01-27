@@ -247,7 +247,7 @@ const Contact = () => {
                     value={walletaddress}
                   />
 
-                  <button>Add contact</button>
+                  <button>Add beneficiary</button>
                 </motion.div>
               </form>
             )}
@@ -294,7 +294,7 @@ const Contact = () => {
               {Object.keys(contacts).length === 0 && (
                 <div className="nocontactmessage">
                   <img src={Addcontacct} alt="" />
-                  <p>It seems that you do not have any saved contacts.</p>
+                  <p>It seems that you have not added any beneficiaries yet.</p>
                   <button
                     onClick={() => {
                       setshowAddContactForm(!showAddContactForm);
