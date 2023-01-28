@@ -49,7 +49,7 @@
 .form button {
   padding: 10px 20px;
   width: 100%;
-  background-color: purple;
+  background-color: #5b0eeb;
   border-radius: 10px;
   margin-top: 10px;
 }
@@ -90,7 +90,7 @@ div.contact::-webkit-scrollbar-thumb {
   justify-content: space-between;
   min-width: 280px;
   margin: 10px 0px;
-  padding: 0px 0px 10px 0px ;
+  padding: 0px 0px 10px 0px;
 }
 .contactcard:last-child {
   border-bottom: none;
@@ -117,9 +117,10 @@ div.contact::-webkit-scrollbar-thumb {
   color: black;
 }
 .addcontact button {
-  background-color: purple;
+  background-color: #5b0eeb;
   border-radius: 10px;
   padding: 10px;
+  margin: 5px 0px;
 }
 .th {
   display: flex;
@@ -135,7 +136,6 @@ th {
   flex-direction: column;
   margin-left: 10px;
 }
-/* walletchart */
 .thcoloum span {
   cursor: pointer;
 }
@@ -218,7 +218,7 @@ th {
   height: 50px;
   display: inline-block;
   cursor: pointer;
-  transition: fill 0.150s ease-in-out;
+  transition: fill 0.15s ease-in-out;
   margin-right: 20px;
 }
 .dots {
@@ -228,8 +228,8 @@ th {
 }
 
 .threedotcontainer:hover .dots {
-  fill:grey;
-  transition: fill 0.150s ease-in-out;
+  fill: grey;
+  transition: fill 0.15s ease-in-out;
 }
 
 .dropdown {
@@ -352,11 +352,10 @@ th {
 .qrcodediv :last-child {
   display: flex;
 }
-.notconnectedsend{
+.notconnectedsend {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 .notconnected {
   text-align: center;
@@ -373,7 +372,7 @@ th {
 }
 .notconnected button {
   display: flex;
-  background-color: purple;
+  background-color: #5b0eeb;
   border-radius: 10px;
   padding: 10px 20px;
 }
@@ -418,103 +417,116 @@ input.nosubmit {
   background: rgb(255, 255, 255)
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
     no-repeat 13px center;
-  border-radius: 5px;
+  border-radius: 10px;
 }
-input.sendformcheckbox{
+input.sendformcheckbox {
   border-radius: 0;
   height: 15px;
   width: 15px;
   background-color: #eee;
 }
-input.sendformcheckbox:checked{
-  background-color: purple;
+input.sendformcheckbox:checked {
+  background-color: #5b0eeb;
   border: none;
 }
-input.sendformcheckbox:hover{
+input.sendformcheckbox:hover {
   background-color: rgb(255, 255, 255);
   border: none;
-
 }
-input.sendformcheckbox::after{
+input.sendformcheckbox::after {
   border: solid white;
   border-width: 0 4px 4px 0;
-  
 }
-input.sendformcheckbox::before{
+input.sendformcheckbox::before {
   border: none;
-  
 }
-.sortdiv{
+.sortdiv {
   display: flex;
 }
-.sortdiv select{
+.sortdiv select {
   padding: 10px 30px 10px 10px;
   border-radius: 10px;
 }
 
-.name{
+.name {
   font-size: 16px;
 }
-.walletaddress{
+.walletaddress {
   font-size: 13px;
 }
-.date{
+.date {
   font-size: 12px;
   color: grey;
 }
-.senddivlabel{
+.senddivlabel {
   font-size: 20px;
   margin-bottom: 10px;
 }
-.notsignedin{
+.notsignedin {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
-.notsignedin h1{
+.notsignedin h1 {
   font-size: 20px;
 }
-.notsignedin button{
-  background-color: purple;
+.notsignedin button {
+  background-color: #5b0eeb;
   padding: 10px 20px;
   border-radius: 10px;
-  margin:20px 10px 0px 0px;
+  margin: 20px 10px 0px 0px;
 }
-.notsignedin:first-child{
+.notsignedin:first-child {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 200px;
 }
-.nocontactmessage{
+.nocontactmessage {
   display: flex;
   align-items: center;
   flex-direction: column;
   text-align: center;
   margin-top: 20px;
 }
-.nocontactmessage img{
+.nocontactmessage img {
   width: 100px;
   object-fit: cover;
 }
-.nocontactmessage p{
+.nocontactmessage p {
   color: grey;
 }
-.nocontactmessage button{
+.nocontactmessage button {
   text-transform: uppercase;
   padding: 10px 20px;
   border-radius: 10px;
-  background-color: purple;
+  background-color: #5b0eeb;
   margin-top: 10px;
 }
 
-.notransactions{
+.notransactions {
   font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+}
 
+.editdropdown {
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+.editdropdown input {
+  border-radius: 10px;
+  margin: 5px 0px;
+}
+.editdropdown button {
+  background-color: #5b0eeb;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  margin-top: 5px;
 }

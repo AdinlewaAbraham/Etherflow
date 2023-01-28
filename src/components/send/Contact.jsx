@@ -21,6 +21,8 @@ import { useNavigate } from "react-router-dom";
 import Sortimg from "../imgs/sort.svg";
 import "./Send.css";
 import Addcontacct from "../imgs/addcontact.svg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const firebaseConfig = {
   apiKey: "AIzaSyBfov3VF_pR4J-9-kypPWTRb4mCEsThGaA",
   authDomain: "contact-8a1b2.firebaseapp.com",
@@ -36,6 +38,40 @@ const auth = getAuth();
 const user = auth.currentUser;
 let colRef = collection(db, "contact");
 const Contact = () => {
+  // notification
+  const notifyAdd = () =>
+    toast.success("Beneficiary added successfully!", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  const notifyDelete = () =>
+    toast.error("Beneficiary deleted successfully!", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  const notifyUpdate = () =>
+    toast.info("Beneficiary updated successfully!", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   const [contacts, setcontacts] = useState([]);
   const [name, setname] = useState("");
   const [walletaddress, setwalletaddress] = useState("");
@@ -68,7 +104,6 @@ const Contact = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const getUsersCallback = useCallback(async () => {
     if (isUserSignedIn) {
-      //colRef = collection(db, `contact${user.uid}`);
       const q =
         searchQuery === ""
           ? query(colRef, orderBy(orderby, orderbytype))
@@ -94,23 +129,29 @@ const Contact = () => {
     console.log("please add contact");
   }
   //adding contact
+  const [error, setError] = useState("");
   const currentTime = new Date().toLocaleString();
   const addContactForm = async (e) => {
     e.preventDefault();
     const user = await auth.currentUser;
     await getUserStatteCallback();
-    if (isUserSignedIn) {
-      console.log(user);
-      colRef = await collection(db, `contact${user.uid}`);
-      addDoc(colRef, {
-        name: name,
-        walletAddress: walletaddress,
-        createdAt: currentTime,
-        severTimeCreated: serverTimestamp(),
-      }).then(() => {
-        setname("");
-        setwalletaddress("");
-      });
+    if (!walletaddress || !name) {
+      setError("Please fill in all fields.");
+    } else {
+      if (isUserSignedIn) {
+        console.log(user);
+        colRef = await collection(db, `contact${user.uid}`);
+        addDoc(colRef, {
+          name: name,
+          walletAddress: walletaddress,
+          createdAt: currentTime,
+          severTimeCreated: serverTimestamp(),
+        }).then(() => {
+          setname("");
+          setwalletaddress("");
+          notifyAdd();
+        });
+      }
     }
   };
   const handleDelete = (e) => {
@@ -127,7 +168,7 @@ const Contact = () => {
       const docRef = doc(db, `contact${user.uid}`, id);
       getUsersCallback();
       deleteDoc(docRef).then(() => {
-        //setid("");
+        notifyDelete();
       });
     }
   };
@@ -146,6 +187,7 @@ const Contact = () => {
       }).then(() => {
         seteditinputname("");
         seteditinputwalletaddress("");
+        notifyUpdate();
       });
     }
   };
@@ -172,6 +214,7 @@ const Contact = () => {
 
   return (
     <AnimatePresence>
+      <ToastContainer />
       <div className="contact" ref={contactRef}>
         {!isUserSignedIn ? (
           <div className="notsignedin">
@@ -234,6 +277,7 @@ const Contact = () => {
                     placeholder="enter name"
                     onChange={(e) => {
                       setname(e.target.value);
+                      setError("")
                     }}
                     type="text"
                     value={name}
@@ -242,11 +286,13 @@ const Contact = () => {
                     placeholder="enter wallet address"
                     onChange={(e) => {
                       setwalletaddress(e.target.value);
+                      setError("")
                     }}
                     type="text"
                     value={walletaddress}
                   />
 
+                  {error && <p style={{ color: "red" }}>{error}</p>}
                   <button>Add beneficiary</button>
                 </motion.div>
               </form>

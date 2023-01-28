@@ -225,7 +225,7 @@ const TransactionsHistory = () => {
                             style={{
                               color:
                                 sortType == "amount" && sortOrder == "asc"
-                                  ? "purple "
+                                  ? "#5b0eeb "
                                   : "white",
                             }}
                             onClick={() => {

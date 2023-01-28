@@ -1,5 +1,5 @@
 .headerMid {
-  font-size: 40px;
+  font-size: 28px;
   line-height: 65px;
   text-align: center;
   margin-bottom: 100px;
@@ -41,4 +41,66 @@
 .portDiv {
   display: flex;
   flex-direction: row;
+}
+.addbendiv {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+  align-items: center;
+  display: none;
+}
+.addbendiv h1 {
+  font-size: 15px;
+}
+.addbendiv img {
+  width: 500px;
+  object-fit: cover;
+}
+.addbendivdesc {
+  width: 60%;
+  text-align: left;
+}
+.addbendivdesc h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.addbendivdesc p {
+  color: grey;
+  font-size: 15px;
+  line-height: 30px;
+}
+.aboutetherflow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  margin-bottom: 100px;
+}
+.aboutetherflow img {
+  width: 500px;
+  margin-right: 30px;
+}
+.aboutetherflow h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+.aboutetherflow p {
+  font-size: 15px;
+  color: gray;
+  margin-bottom: 20px;
+}
+.aboutetherflow button {
+  background-color: #5b0eeb;
+  cursor: pointer;
+  margin: 10px 30px 0px 0px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+}
+.aboutetherflow button:hover {
+  background-color: #6d5dfc;
 }

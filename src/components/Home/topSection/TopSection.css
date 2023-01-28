@@ -1,7 +1,7 @@
 .main{
   display: flex;
   align-items: center;
-  margin: 120px 90px 150px 90px;
+  margin: 120px 0px 100px 0px;
 }
 .flexRow {
   display: flex;
@@ -26,15 +26,14 @@
 .subHeader {
   text-align: left;
   margin-bottom: 30px;
+  color: grey;
+  font-size: 15px;
 }
-
+.startNow:hover{
+  background-color: #6d5dfc;
+}
 .startNow {
-  background-image: linear-gradient(
-    to right,
-    #682bd7 0%,
-    #a37cf0 51%,
-    #bd2e95 100%
-  );
+  background-color: #5b0eeb;
   cursor: pointer;
   margin: 10px 30px 0px 0px;
   padding: 15px 45px;
@@ -45,12 +44,6 @@
   color: white;
   border-radius: 10px;
   display: block;
-}
-
-.startNow:hover {
-  background-position: right center;
-  color: #fff;
-  text-decoration: none;
 }
 
 .blurSpot {

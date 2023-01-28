@@ -30,7 +30,9 @@ const ContactComp = (p) => {
             <img src={UserIcon} alt="" />
             <div>
               <p className="name">{p.name}</p>
-              <p className="walletaddress">{`${p.WA.slice(0, 4)}...${p.WA.slice(-4)}`}</p>
+              <p className="walletaddress">{`${p.WA.slice(0, 4)}...${p.WA.slice(
+                -4
+              )}`}</p>
               <p className="date">{p.DA}</p>
             </div>
           </div>
@@ -64,6 +66,7 @@ const ContactComp = (p) => {
       </div>
       {showDropdown && (
         <motion.div
+          className="detectme"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}

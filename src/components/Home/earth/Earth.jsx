@@ -35,7 +35,7 @@ const earth = () => {
           // flagLat:39.56,
           // flagLon: 116.20,
           // flagColor: 'green'
-          dotColor: "purple",
+          dotColor: "#5b0eeb",
           // autoRotationSpeed: 3,
           // draggingRotationSpeed:5,
           // textureSrc: '/images/map.png'

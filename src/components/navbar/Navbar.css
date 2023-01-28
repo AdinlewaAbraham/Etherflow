@@ -16,7 +16,7 @@ nav h1 {
   font-size: 30px;
 }
 .flow {
-  color: purple;
+  color: #5b0eeb;
   letter-spacing: 4px;
 }
 .navrow {
@@ -52,7 +52,7 @@ ul {
 }
 
 .link:hover {
-  color: purple;
+  color: #5b0eeb;
 }
 a {
   color: white;

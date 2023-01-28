@@ -26,7 +26,7 @@
 }
 .signupbutton {
   width: 100%;
-  background-color: purple;
+  background-color: #5b0eeb;
   margin: 20px 0px 10px 0px;
   height: 50px;
   border-radius: 10px;
@@ -47,18 +47,4 @@
   width: 30px;
   object-fit: cover;
   margin-right: 10px;
-}
-.login {
-  color: purple;
-}
-.login:hover {
-  color: rgb(156, 29, 156);
-}
-.forgotpass {
-  color: purple;
-  cursor: pointer;
-  text-align: left;
-}
-.forgotpass:hover {
-  color: rgb(156, 29, 156);
 }

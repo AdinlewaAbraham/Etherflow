@@ -22,6 +22,8 @@ const firebaseConfig = {
 };
 
 import { CircularProgress } from "@material-ui/core";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // init firebase app
 const app = initializeApp(firebaseConfig);
@@ -31,7 +33,6 @@ const db = getFirestore();
 const auth = getAuth();
 const user = auth.currentUser;
 const currentTime = new Date().toLocaleString();
-
 if (typeof window.ethereum !== "undefined") {
   window.ethereum.on("accountsChanged", function (accounts) {
     location.reload();
@@ -128,6 +129,18 @@ const SendForm = () => {
   } else {
     setamount(amount);
   }
+  const notifyAdd = () =>
+    toast.success("Beneficiary added successfully!", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  const [error, setError] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (typeof amount !== "string") {
@@ -137,7 +150,7 @@ const SendForm = () => {
     }
 
     if (!addressTo || !amount || !transactionDescription || !receiverName) {
-      console.log("pls fill form");
+      setError("Please fill in all fields.");
     } else {
       if (user && isChecked) {
         addDoc(colRef, {
@@ -146,9 +159,10 @@ const SendForm = () => {
           createdAt: currentTime,
           severTimeCreated: serverTimestamp(),
         }).then(() => {
-          console.log("add");
+          notifyAdd();
         });
       }
+      setError("");
       setamount(amount.toString());
       sendTransaction();
     }
@@ -203,8 +217,24 @@ const SendForm = () => {
   const [remainingbalance, setremainingbalance] = useState();
   const BalanceInUsd = walletBalance * conversionRate;
   const RemainingBalanceInUsd = BalanceInUsd - usdValue;
+  const [isUserSignedIn, setisUserSignedIn] = useState(false);
+  const getUserStatteCallback = useCallback(async () => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setisUserSignedIn(true);
+        colRef = collection(db, `contact${user.uid}`);
+      } else {
+        setisUserSignedIn(false);
+      }
+    });
+  }, [user, isUserSignedIn]);
+  useEffect(() => {
+    getUserStatteCallback();
+  }, [getUserStatteCallback]);
+
   return (
     <div className="sendform">
+      <ToastContainer />
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div className="priceconverter">
           converted price in USD <h1>{formatter.format(usdValue || 0)} </h1>
@@ -227,6 +257,7 @@ const SendForm = () => {
           onChange={(e) => {
             setaddressTo(e.target.value);
             console.log(addressTo);
+            setError("");
           }}
         />
         <input
@@ -236,6 +267,7 @@ const SendForm = () => {
           value={amount}
           onChange={(e) => {
             setamount(e.target.value);
+            setError("");
             if (amount !== 0) {
               setUsdValue(e.target.value * conversionRate);
               setremainingbalance(amount * conversionRate - usdValue);
@@ -251,6 +283,7 @@ const SendForm = () => {
             setUsdValue(e.target.value);
             if (usdValue !== 0) {
               setamount(e.target.value / conversionRate);
+              setError("");
             }
           }}
         />
@@ -261,14 +294,16 @@ const SendForm = () => {
           value={receiverName}
           onChange={(e) => {
             setreceiverName(e.target.value);
+            setError("");
           }}
         />
+        {error && <p style={{ color: "red" }}>{error}</p>}
         {isLoading ? (
           <div
             style={{
               margin: "auto",
               color: "purple",
-              paddingTop:"15px"
+              paddingTop: "15px",
             }}
           >
             <CircularProgress size={200} thickness={1} />
@@ -279,14 +314,19 @@ const SendForm = () => {
           </button>
         ) : (
           <div>
-            <label>Save this beneficiary</label>
-            <input
-              style={{ borderRadius: "5px" }}
-              className="sendformcheckbox"
-              type="checkbox"
-              checked={isChecked}
-              onChange={(e) => setIsChecked(e.target.checked)}
-            />
+            {isUserSignedIn && (
+              <div>
+                {" "}
+                <label>Save this beneficiary</label>
+                <input
+                  style={{ borderRadius: "5px" }}
+                  className="sendformcheckbox"
+                  type="checkbox"
+                  checked={isChecked}
+                  onChange={(e) => setIsChecked(e.target.checked)}
+                />
+              </div>
+            )}
             <button type="button" onClick={handleSubmit}>
               Send now
             </button>

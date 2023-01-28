@@ -129,7 +129,7 @@ export const TransactionsProvider = ({ children }) => {
       await setamount(amount);
     }
         const transactionsContract = createEthereumContract();
-        const parsedAmount = ethers.utils.parseEther(amount);
+        const parsedAmount = ethers.utils.parseUnits(amount, 18).toString()
 
         await ethereum.request({
           method: "eth_sendTransaction",

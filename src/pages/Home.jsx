@@ -3,7 +3,7 @@ import { TopSection } from "../components/Home/topSection/TopSection";
 import Midsection from "../components/Home/midsection/Midsection";
 const Home = () => {
   return (
-    <div>
+    <div style={{padding:"0px 100px"}}>
       <TopSection />
       <Midsection />
     </div>
