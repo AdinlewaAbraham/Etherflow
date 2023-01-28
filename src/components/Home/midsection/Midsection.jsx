@@ -3,7 +3,7 @@ import "./Midsection.css";
 import SecureImg from "../../imgs/security.svg";
 import ReliabilityImg from "../../imgs/Reliability.png";
 import fastIcon from "../../imgs/clock.png";
-import bene from "../../imgs/people-community-add.svg";
+//import bene from "../../imgs/people-community-add.svg";
 import etherflowimg from "../../imgs/aboutetherflowimg.png";
 
 const GlowDiv = (p) => {
@@ -70,7 +70,7 @@ const Midsection = () => {
       </div>
       <div className="addbendiv">
         <div>
-          <img src={bene} alt="" />
+          {/* <img src={bene} alt="" /> */}
         </div>
         <div className="addbendivdesc">
           <h1>Simplifying Transactions with our Beneficiary System</h1>
