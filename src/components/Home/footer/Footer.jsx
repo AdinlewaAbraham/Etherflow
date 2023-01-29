@@ -6,8 +6,8 @@ const footer = () => {
     <footer>
       <div class="col-md-4">
         <h5>Contact Us</h5>
-        <p>Email: info@etherflow.io</p>
-        <p>Phone: +1 (555) 555-5555</p>
+        <p>Email: abrahamadinlewa@gmail.com</p>
+        <p>Phone: +234 (555) 81-8943-2013</p>
         <p>Address: 123 Main Street, Suite 200, Anytown USA</p>
       </div>
       <div class="col-md-4">
