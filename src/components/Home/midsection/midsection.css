@@ -45,9 +45,7 @@
 .addbendiv {
   display: flex;
   justify-content: space-between;
-  margin-top: 100px;
   align-items: center;
-  display: none;
 }
 .addbendiv h1 {
   font-size: 15px;
@@ -103,4 +101,16 @@
 }
 .aboutetherflow button:hover {
   background-color: #6d5dfc;
+}
+.purplefilter {
+  filter: hue-rotate(50deg) saturate(100%) brightness(75%);
+}
+.purplefilterchart {
+  filter: hue-rotate(40deg) saturate(100%) brightness(75%);
+}
+.chartprodiv{
+  display: flex;
+}
+.chartprodiv img {
+  width: 40%;
 }

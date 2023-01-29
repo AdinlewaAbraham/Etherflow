@@ -30,6 +30,7 @@ export const Chart = () => {
 
     getAccount();
   }, []);
+
   useEffect(() => {
     if (account && transactions.length > 0) {
       const filteredTransactions = transactions.filter((transaction) => {
@@ -47,7 +48,7 @@ export const Chart = () => {
         return {
           x: formattedTimestamp,
           y:
-            transaction.amount * (transaction.addressFrom === account ? -1 : 1), // multiply by -1 if the transaction is from the current account
+            (transaction.amount ) * (transaction.addressFrom === account ? -1 : 1), // multiply by -1 if the transaction is from the current account
           type: transaction.addressFrom === account ? "sent" : "received",
         };
       });
@@ -56,7 +57,7 @@ export const Chart = () => {
   }, [account, transactions]);
   return (
     <div className="walletchart">
-      <Line 
+      <Line
         data={{
           labels: mappedData.map((data) => data.x),
           datasets: [

@@ -18,6 +18,10 @@ nav h1 {
 .flow {
   color: #5b0eeb;
   letter-spacing: 4px;
+  transition: all 150ms ease-in;
+}
+.flow:hover{
+  color: #6d5dfc;
 }
 .navrow {
   display: flex;

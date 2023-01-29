@@ -3,7 +3,8 @@ import "./Midsection.css";
 import SecureImg from "../../imgs/security.svg";
 import ReliabilityImg from "../../imgs/Reliability.png";
 import fastIcon from "../../imgs/clock.png";
-//import bene from "../../imgs/people-community-add.svg";
+import bene from "../../imgs/addfriend.png";
+import chartimg from "../../imgs/linechart.png";
 import etherflowimg from "../../imgs/aboutetherflowimg.png";
 
 const GlowDiv = (p) => {
@@ -27,7 +28,7 @@ const Midsection = () => {
         <img src={etherflowimg} alt="" />
         <div>
           <h1>
-            About Ether<span className="flow">flow</span>
+            About <span style={{textTransform: "uppercase"}}> Ether<span className="flow">flow</span></span>
           </h1>
           <p>
             Etherflow is a decentralized application that simplifies the use of
@@ -69,9 +70,6 @@ const Midsection = () => {
         </div>
       </div>
       <div className="addbendiv">
-        <div>
-          {/* <img src={bene} alt="" /> */}
-        </div>
         <div className="addbendivdesc">
           <h1>Simplifying Transactions with our Beneficiary System</h1>
           <p>
@@ -81,6 +79,26 @@ const Midsection = () => {
             addresses, making recurring transactions faster and more convenient.
             Say goodbye to the tedious task of manual address input, and hello
             to a more efficient and user-friendly experience.
+          </p>
+        </div>
+        <div>
+          <img className="purplefilter" src={bene} alt="" />
+        </div>
+      </div>
+      <div className="addbendiv">
+        <img className="purplefilterchart" src={chartimg} alt="" />
+        <div className="addbendivdesc">
+          <h1>Explore Your Transactions with Ease</h1>
+          <p>
+            Our decentralized application is designed to provide users with a
+            seamless experience of tracking their transaction history on the
+            blockchain. With our user-friendly interface and real-time updates,
+            you will have a clear understanding of all your digital assets,
+            making it easy to manage and track them. Our DApp is not only secure
+            but also reliable, providing you with the peace of mind you need to
+            take control of your financial future. Try it out now and experience
+            the convenience of visualizing your transaction history, in a way
+            that you have never seen before.
           </p>
         </div>
       </div>
