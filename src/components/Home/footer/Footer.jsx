@@ -6,7 +6,7 @@ const footer = () => {
     <footer>
       <div class="col-md-4">
         <h5>Contact Us</h5>
-        <p>Email: abrahamadinlewa@gmail.com</p>
+        <p>Email: fakemail@gmail.com</p>
         <p>Phone: +234 (555) 81-8943-2013</p>
         <p>Address: 123 Main Street, Suite 200, Anytown USA</p>
       </div>
