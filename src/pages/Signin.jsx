@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { initializeApp } from "firebase/app";
+import Githubimg from "../components/imgs/githubimg.svg";
 import {
   getAuth,
   signInWithPopup,
@@ -90,6 +91,7 @@ const Signup = () => {
         }}
         className="signinwithgoogle"
       >
+        <img src={Githubimg} alt="" />
         sign in with github
       </button>
     </div>

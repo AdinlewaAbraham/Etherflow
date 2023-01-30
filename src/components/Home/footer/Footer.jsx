@@ -1,32 +1,30 @@
 import React from "react";
 import "./Footer.css";
+import Githubimg from "../../imgs/githubimg.svg";
+import { Link } from "react-router-dom";
 
 const footer = () => {
   return (
     <footer>
       <div class="col-md-4">
         <h5>Contact Us</h5>
-        <p>Email: fakemail@gmail.com</p>
-        <p>Phone: +234 (555) 81-8943-2013</p>
-        <p>Address: 123 Main Street, Suite 200, Anytown USA</p>
+        <p>Email: abrahamadinlewa@gmail.com</p>
+        <p>Phone: +234 818 943 2013</p>
       </div>
       <div class="col-md-4">
         <h5>Links</h5>
         <ul>
           <li>
-            <a href="#">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="#">About</a>
+            <Link to="/send">Send</Link>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <Link to="/receive">Receive</Link>
           </li>
           <li>
-            <a href="#">Privacy Policy</a>
-          </li>
-          <li>
-            <a href="#">Terms of Service</a>
+            <Link to="/signin">Signin</Link>
           </li>
         </ul>
       </div>
@@ -34,23 +32,8 @@ const footer = () => {
         <h5>Follow Us</h5>
         <ul class="social-icons">
           <li>
-            <a href="#">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fab fa-facebook"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fab fa-linkedin"></i>
+            <a href="https://github.com/AdinlewaAbraham" target="_blank">
+              <i class="fab fa-twitter"><img src={Githubimg } alt="" /></i>
             </a>
           </li>
         </ul>
