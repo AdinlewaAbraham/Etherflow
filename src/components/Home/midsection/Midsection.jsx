@@ -1,11 +1,11 @@
 import React from "react";
-import "./Midsection.css";
 import SecureImg from "../../imgs/security.svg";
 import ReliabilityImg from "../../imgs/Reliability.png";
 import fastIcon from "../../imgs/clock.png";
 import bene from "../../imgs/addfriend.png";
 import chartimg from "../../imgs/linechart.png";
 import etherflowimg from "../../imgs/aboutetherflowimg.png";
+import "../../Home/midsection/Midsection.css"
 
 const GlowDiv = (p) => {
   return (
