@@ -10,10 +10,10 @@ const Portfolio = (p) => {
       </button>
       {isVisible && (
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, y: 10 }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 2 }}
         >
           <p>Hello! I am a component that is being animated.</p>
         </motion.div>

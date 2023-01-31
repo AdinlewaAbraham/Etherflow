@@ -35,13 +35,6 @@
   height: 70px;
 }
 
-.portMainDiv {
-  margin: 50px 0px 0px 0px;
-}
-.portDiv {
-  display: flex;
-  flex-direction: row;
-}
 .addbendiv {
   display: flex;
   justify-content: space-between;
@@ -114,3 +107,6 @@
 .chartprodiv img {
   width: 40%;
 }
+
+
+

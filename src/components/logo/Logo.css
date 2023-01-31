@@ -1,0 +1,73 @@
+.logo {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 700;
+  color: grey;
+  transition: all 300ms ease-in;
+}
+.logo:hover{
+    color: white;
+}
+.waveoverlay {
+  transition: all 150ms ease-in;
+  letter-spacing: 5px;
+  position: absolute;
+  color: white;
+  height: 50%;
+}
+.wave {
+  transition: all 150ms ease-in;
+  letter-spacing: 5px;
+  -webkit-text-stroke-width: 1px;
+  z-index: 1;
+  display: inline-block;
+  color: #6d5dfc;
+  transition: color 300ms ease;
+  height: 50%; /* Set the height of the water to half of the text */
+  clip-path: polygon(
+    0 45%,
+    16% 44%,
+    33% 50%,
+    50% 60%,
+    66% 61%,
+    83% 59%,
+    100% 52%,
+    100% 100%,
+    0 100%
+  );
+}
+.logo:hover .flow .wave {
+  animation: wave-animation 1.5s  infinite linear;
+  color: #5b0eeb;
+}
+
+@keyframes wave-animation {
+  0%,
+  100% {
+    clip-path: polygon(
+      0 45%,
+      16% 44%,
+      33% 50%,
+      50% 60%,
+      66% 61%,
+      83% 59%,
+      100% 52%,
+      100% 100%,
+      0 100%
+    );
+  }
+
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      16% 60%,
+      33% 66%,
+      50% 62%,
+      66% 50%,
+      83% 45%,
+      100% 45%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}

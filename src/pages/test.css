@@ -1,0 +1,13 @@
+.wave-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  
+  .wavey {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, #9be7ff 0%, #90dfff 100%);
+    border-radius: 50% 50% 0 0;
+    transform: translateY(-50%);
+  }

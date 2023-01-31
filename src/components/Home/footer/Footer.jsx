@@ -6,6 +6,19 @@ import { Link } from "react-router-dom";
 const footer = () => {
   return (
     <footer>
+      <div>
+        <div className="logo">
+          <Link to="/" className="link">
+            <div style={{ position: "relative" }}>
+              Ether
+              <span className="flow">
+                <span className="waveoverlay">flow</span>
+                <span className="wave">flow</span>
+              </span>
+            </div>
+          </Link>
+        </div>
+      </div>
       <div class="col-md-4">
         <h5>Contact Us</h5>
         <p>Email: abrahamadinlewa@gmail.com</p>
@@ -33,7 +46,9 @@ const footer = () => {
         <ul class="social-icons">
           <li>
             <a href="https://github.com/AdinlewaAbraham" target="_blank">
-              <i class="fab fa-twitter"><img src={Githubimg } alt="" /></i>
+              <i class="fab fa-twitter">
+                <img src={Githubimg} alt="" />
+              </i>
             </a>
           </li>
         </ul>

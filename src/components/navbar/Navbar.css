@@ -11,18 +11,6 @@ nav {
   font-size: 20px;
   max-height: 70px;
 }
-nav h1 {
-  text-transform: uppercase;
-  font-size: 30px;
-}
-.flow {
-  color: #5b0eeb;
-  letter-spacing: 4px;
-  transition: all 150ms ease-in;
-}
-.flow:hover{
-  color: #6d5dfc;
-}
 .navrow {
   display: flex;
 }
@@ -42,10 +30,6 @@ nav h1 {
   align-items: center;
   width: 30%;
 }
-ul {
-  overflow: hidden;
-  list-style-type: none;
-}
 .link {
   text-align: center;
   display: inline-block;
@@ -53,12 +37,9 @@ ul {
   transform: all 150ms;
   font-size: 20px;
   text-decoration: none;
+  color: grey;
 }
 
-.link:hover {
-  color: #5b0eeb;
-}
 a {
-  color: white;
   text-decoration: none;
 }

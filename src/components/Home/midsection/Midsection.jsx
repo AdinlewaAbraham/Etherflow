@@ -28,7 +28,11 @@ const Midsection = () => {
         <img src={etherflowimg} alt="" />
         <div>
           <h1>
-            About <span style={{textTransform: "uppercase"}}> Ether<span className="flow">flow</span></span>
+            About{" "}
+            <span style={{ textTransform: "uppercase" }}>
+              {" "}
+              Ether<span className="flow">flow</span>
+            </span>
           </h1>
           <p>
             Etherflow is a decentralized application that simplifies the use of

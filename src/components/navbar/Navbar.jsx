@@ -6,6 +6,7 @@ import NoUserPic from "../imgs/nouserpic.png";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, signOut } from "firebase/auth";
+import Logo from "../logo/Logo";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBfov3VF_pR4J-9-kypPWTRb4mCEsThGaA",
@@ -43,14 +44,7 @@ const Navbar = () => {
   return (
     <nav>
       <div>
-        <div className=".link">
-          <h1>
-            {" "}
-            <Link to="/">
-              Ether<span className="flow">flow</span>
-            </Link>
-          </h1>
-        </div>
+        <Logo />
       </div>
       <div className="navflex">
         <div className=".link">
