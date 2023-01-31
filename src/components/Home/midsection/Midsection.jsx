@@ -5,7 +5,7 @@ import fastIcon from "../../imgs/clock.png";
 import bene from "../../imgs/addfriend.png";
 import chartimg from "../../imgs/linechart.png";
 import etherflowimg from "../../imgs/aboutetherflowimg.png";
-import "../../Home/midsection/Midsection.css"
+import "../../Home/midsection/Middle.css"
 
 const GlowDiv = (p) => {
   return (
