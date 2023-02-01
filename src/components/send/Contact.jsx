@@ -15,7 +15,6 @@ import {
 import { getAuth } from "firebase/auth";
 import { useContext, useState, useCallback, useEffect, useRef } from "react";
 import { TransactionContext } from "../../context/TransactionContext";
-import ContactComp from "./ContactComp";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Sortimg from "../imgs/sort.svg";
@@ -37,6 +36,86 @@ const db = getFirestore();
 const auth = getAuth();
 const user = auth.currentUser;
 let colRef = collection(db, "contact");
+
+import UserIcon from "../imgs/user.svg";
+
+const ContactComp = (p) => {
+  const [showDropdown, setShowDropdown] = useState(p.show);
+  const [showShowMenu, setshowShowMenu] = useState(false);
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (e.target.closest(".detectme") === null) {
+        setShowDropdown(false);
+      } else {
+      }
+      if (e.target.closest(".threedotcontainer") === null) {
+        setshowShowMenu(false);
+      } else {
+      }
+    };
+    document.addEventListener("click", handleClick);
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, [setShowDropdown]);
+
+  return (
+    <AnimatePresence>
+      <div className="contactcard">
+        <div className="contactspace">
+          <div style={{ marginRight: "30px" }}>
+            <img src={UserIcon} alt="" />
+            <div>
+              <p className="name">{p.name}</p>
+              <p className="walletaddress">{`${p.WA.slice(0, 4)}...${p.WA.slice(
+                -4
+              )}`}</p>
+              <p className="date">{p.DA}</p>
+            </div>
+          </div>
+
+          <div
+            className="dropdown"
+            onClick={() => {
+              setshowShowMenu(!showShowMenu);
+            }}
+          >
+            <div
+              onClick={() => {
+                setShowDropdown(!showDropdown);
+              }}
+              className="dropdown-content"
+              style={{ display: showShowMenu ? "block" : "none" }}
+            >
+              <a className="detectme">{p.edit}</a>
+              <a>{p.delete}</a>
+              <a>{p.send}</a>
+            </div>
+            <div class="threedotcontainer">
+              <svg viewBox="0 0 16 16" class="dots">
+                <circle cx="8" cy="4" r="2" />
+                <circle cx="8" cy="8" r="2" />
+                <circle cx="8" cy="12" r="2" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      {showDropdown && (
+        <motion.div
+          className="detectme"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          transition={{ duration: 0.2 }}
+        >
+          <div>{p.Editinput}</div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
 const Contact = () => {
   // notification
   const notifyAdd = () =>
@@ -85,6 +164,8 @@ const Contact = () => {
 
   const [showAddContactForm, setshowAddContactForm] = useState(false);
   const [showsort, setshowsort] = useState(false);
+
+  const [showme, setshowme] = useState(0);
 
   const getUserStatteCallback = useCallback(async () => {
     auth.onAuthStateChanged((user) => {
@@ -176,8 +257,13 @@ const Contact = () => {
     seteditinputname(e.target.id);
     seteditinputwalletaddress(e.target.name);
   };
+  const [uncompleteeditform, setuncompleteeditform] = useState(false);
   const handleUpdate = async (e) => {
-    if (isUserSignedIn) {
+    if (
+      isUserSignedIn &&
+      editinputname !== "" &&
+      editinputwalletaddress !== ""
+    ) {
       const user = await auth.currentUser;
       const docRef = doc(db, `contact${user.uid}`, e.target.id);
       getUsersCallback();
@@ -185,10 +271,13 @@ const Contact = () => {
         name: editinputname,
         walletAddress: editinputwalletaddress,
       }).then(() => {
+        setshowme;
         seteditinputname("");
         seteditinputwalletaddress("");
         notifyUpdate();
       });
+    } else {
+      setuncompleteeditform(true);
     }
   };
 
@@ -277,7 +366,7 @@ const Contact = () => {
                     placeholder="enter name"
                     onChange={(e) => {
                       setname(e.target.value);
-                      setError("")
+                      setError("");
                     }}
                     type="text"
                     value={name}
@@ -286,7 +375,7 @@ const Contact = () => {
                     placeholder="enter wallet address"
                     onChange={(e) => {
                       setwalletaddress(e.target.value);
-                      setError("")
+                      setError("");
                     }}
                     type="text"
                     value={walletaddress}
@@ -352,6 +441,7 @@ const Contact = () => {
               )}
               {contacts.map(({ name, id, walletAddress, createdAt }) => (
                 <ContactComp
+                  show={showme}
                   name={name}
                   WA={walletAddress}
                   DA={createdAt}
@@ -399,6 +489,9 @@ const Contact = () => {
                         }
                         value={editinputwalletaddress}
                       />
+                      {uncompleteeditform && (
+                        <p style={{ color: "red" }}>Please fill out the form.</p>
+                      )}
                       <button id={id} name={name} onClick={handleUpdate}>
                         update
                       </button>

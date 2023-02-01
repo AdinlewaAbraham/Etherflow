@@ -1,13 +1,43 @@
-.wave-container {
-    position: absolute;
-    left: 0;
-    right: 0;
+.footerwavewrapper {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+.footerwave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+}
+.footerwave:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../components/imgs/wave.svg") repeat-x;
+  background-size: cover;
+  background-position: -1000px 0;
+  opacity: 0.2;
+  animation: waveOne 60s linear infinite;
+}
+@keyframes waveOne {
+  50% {
+    background-position: 0 0;
   }
-  
-  .wavey {
-    width: 100%;
-    height: 100px;
-    background: linear-gradient(to bottom, #9be7ff 0%, #90dfff 100%);
-    border-radius: 50% 50% 0 0;
-    transform: translateY(-50%);
-  }
+}
+.footerwave:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../components/imgs/wave.svg") repeat-x;
+  background-size: cover;
+  background-position: 2732px 0;
+  opacity: 0.3;
+  animation: waveOne 120s linear infinite;
+}

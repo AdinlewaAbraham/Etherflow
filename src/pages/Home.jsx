@@ -7,11 +7,13 @@ const Home = () => {
     document.title = "Etherflow";
   }, []);
   return (
-    <div style={{ padding: "0px 100px" }}>
-      <TopSection />
-      <Midsection />
-      <Footer />
-    </div>
+    <>
+      <div style={{ padding: "0px 100px" }}>
+        <TopSection />
+        <Midsection />
+      </div>
+        <Footer />
+    </>
   );
 };
 

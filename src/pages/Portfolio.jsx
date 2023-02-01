@@ -1,24 +1,13 @@
 import React from "react";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-const Portfolio = (p) => {
-  const [isVisible, setIsVisible] = useState(false);
+import "./test.css";
+import Wave from "../components/imgs/wave.svg";
+const Portfolio = () => {
   return (
-    <AnimatePresence>
-      <button onClick={() => setIsVisible(!isVisible)}>
-        Toggle
-      </button>
-      {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, y: 10 }}
-          transition={{ duration: 2 }}
-        >
-          <p>Hello! I am a component that is being animated.</p>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <div className="footerwavewrapper">
+      <div className="footerwave">
+        <img src={Wave} alt="" />
+      </div>
+    </div>
   );
 };
 

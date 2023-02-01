@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SecureImg from "../../imgs/security.svg";
 import ReliabilityImg from "../../imgs/Reliability.png";
 import fastIcon from "../../imgs/clock.png";
 import bene from "../../imgs/addfriend.png";
 import chartimg from "../../imgs/linechart.png";
 import etherflowimg from "../../imgs/aboutetherflowimg.png";
-import "../../Home/midsection/Middle.css"
+import "../../Home/midsection/Middle.css";
+
+import Wave from "../../imgs/wave.svg";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const GlowDiv = (p) => {
   return (
@@ -22,19 +27,20 @@ const GlowDiv = (p) => {
 };
 
 const Midsection = () => {
+  useEffect(() => {
+    AOS.init({
+      once: true, // only animate once when the element is in view
+    });
+  }, []);
   return (
     <div>
       <div className="aboutetherflow">
-        <img src={etherflowimg} alt="" />
-        <div>
+        <img src={etherflowimg} alt="" data-aos="fade-right" />
+        <div data-aos="fade-up">
           <h1>
-            About{" "}
-            <span style={{ textTransform: "uppercase" }}>
-              {" "}
-              Ether<span className="flow">flow</span>
-            </span>
+            About <span style={{ textTransform: "uppercase" }}>Etherflow</span>
           </h1>
-          <p>
+          <p data-aos="fade-up" data-aos-delay="100">
             Etherflow is a decentralized application that simplifies the use of
             Ethereum for digital transactions, including a beneficiary system
             for easier recurring payments. Our user-friendly interface makes it
@@ -47,8 +53,8 @@ const Midsection = () => {
             thanks to the decentralized nature of the Ethereum blockchain. Our
             ultimate goal is to make the use of Ethereum more accessible to
             everyone.
+            <button>Get Started</button>
           </p>
-          <button>Get Started</button>
         </div>
       </div>
       <div>
@@ -56,25 +62,36 @@ const Midsection = () => {
           Easily and quickly transfer money to anyone
         </h1>
         <div className="glowDivMain">
-          <GlowDiv
-            img={fastIcon}
-            header="Fast"
-            desc="Speedy crypto transfer with our platform."
-          />
-          <GlowDiv
-            img={SecureImg}
-            header="Secure"
-            desc="Secure crypto transfer with Metamask pairing."
-          />
-          <GlowDiv
-            img={ReliabilityImg}
-            header="Reliable"
-            desc="Dependable crypto transfer with our platform."
-          />
+          <div data-aos="fade-up" data-aos-delay="0">
+            <GlowDiv
+              data-aos="fade-up"
+              img={fastIcon}
+              header="Fast"
+              desc="Speedy crypto transfer with our platform."
+            />
+          </div>
+          <div data-aos="fade-up" data-aos-delay="100">
+            <GlowDiv
+              data-aos="fade-up"
+              data-aos-delay="200"
+              img={SecureImg}
+              header="Secure"
+              desc="Secure crypto transfer with Metamask pairing."
+            />
+          </div>
+          <div data-aos="fade-up" data-aos-delay="200">
+            <GlowDiv
+              data-aos="fade-up"
+              data-aos-delay="400"
+              img={ReliabilityImg}
+              header="Reliable"
+              desc="Dependable crypto transfer with our platform."
+            />
+          </div>
         </div>
       </div>
       <div className="addbendiv">
-        <div className="addbendivdesc">
+        <div className="addbendivdesc" data-aos="fade-right">
           <h1>Simplifying Transactions with our Beneficiary System</h1>
           <p>
             Our dapp streamlines the transaction process by eliminating the need
@@ -85,13 +102,18 @@ const Midsection = () => {
             to a more efficient and user-friendly experience.
           </p>
         </div>
-        <div>
+        <div data-aos="fade-left">
           <img className="purplefilter" src={bene} alt="" />
         </div>
       </div>
       <div className="addbendiv">
-        <img className="purplefilterchart" src={chartimg} alt="" />
-        <div className="addbendivdesc">
+        <img
+          className="purplefilterchart"
+          src={chartimg}
+          alt=""
+          data-aos="fade-right"
+        />
+        <div className="addbendivdesc" data-aos="fade-left">
           <h1>Explore Your Transactions with Ease</h1>
           <p>
             Our decentralized application is designed to provide users with a

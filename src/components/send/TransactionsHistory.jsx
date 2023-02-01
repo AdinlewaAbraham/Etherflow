@@ -48,7 +48,7 @@ export const Chart = () => {
         return {
           x: formattedTimestamp,
           y:
-            (transaction.amount ) * (transaction.addressFrom === account ? -1 : 1), // multiply by -1 if the transaction is from the current account
+            transaction.amount * (transaction.addressFrom === account ? -1 : 1), // multiply by -1 if the transaction is from the current account
           type: transaction.addressFrom === account ? "sent" : "received",
         };
       });
@@ -226,7 +226,7 @@ const TransactionsHistory = () => {
                             style={{
                               color:
                                 sortType == "amount" && sortOrder == "asc"
-                                  ? "#5b0eeb "
+                                  ? "#5f22d9 "
                                   : "white",
                             }}
                             onClick={() => {
@@ -240,7 +240,7 @@ const TransactionsHistory = () => {
                             style={{
                               color:
                                 sortType == "amount" && sortOrder == "desc"
-                                  ? "purple "
+                                  ? "#5f22d9 "
                                   : "white",
                             }}
                             onClick={() => {
@@ -262,7 +262,7 @@ const TransactionsHistory = () => {
                             style={{
                               color:
                                 sortType == "date" && sortOrder == "asc"
-                                  ? "purple "
+                                  ? "#5f22d9 "
                                   : "white",
                             }}
                             onClick={() => {
@@ -276,7 +276,7 @@ const TransactionsHistory = () => {
                             style={{
                               color:
                                 sortType == "date" && sortOrder !== "asc"
-                                  ? "purple "
+                                  ? "#5f22d9 "
                                   : "white",
                             }}
                             onClick={() => {

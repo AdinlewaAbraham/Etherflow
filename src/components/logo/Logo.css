@@ -9,11 +9,14 @@
     color: white;
 }
 .waveoverlay {
-  transition: all 150ms ease-in;
+  transition: all 300ms ease-in;
   letter-spacing: 5px;
   position: absolute;
-  color: white;
+  color:grey;
   height: 50%;
+}
+.logo:hover .waveoverlay{
+  color: white;
 }
 .wave {
   transition: all 150ms ease-in;
@@ -21,7 +24,7 @@
   -webkit-text-stroke-width: 1px;
   z-index: 1;
   display: inline-block;
-  color: #6d5dfc;
+  color: #5200CC;
   transition: color 300ms ease;
   height: 50%; /* Set the height of the water to half of the text */
   clip-path: polygon(
@@ -38,7 +41,7 @@
 }
 .logo:hover .flow .wave {
   animation: wave-animation 1.5s  infinite linear;
-  color: #5b0eeb;
+  color: #781FFF;
 }
 
 @keyframes wave-animation {

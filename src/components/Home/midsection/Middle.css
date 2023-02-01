@@ -25,7 +25,7 @@
   border-radius: 50%;
   margin-left: auto;
   margin-right: auto;
-  background-color: #682bd7;
+  background-color: #2c016d;
 }
 .glowDivImg {
   object-fit: contain;
@@ -81,9 +81,9 @@
   margin-bottom: 20px;
 }
 .aboutetherflow button {
-  background-color: #5b0eeb;
+  background-color: #2c016d;
   cursor: pointer;
-  margin: 10px 30px 0px 0px;
+  margin-top: 30px;
   padding: 15px 45px;
   text-align: center;
   text-transform: uppercase;
@@ -93,7 +93,7 @@
   border-radius: 10px;
 }
 .aboutetherflow button:hover {
-  background-color: #6d5dfc;
+  background-color: #5f22d9;
 }
 .purplefilter {
   filter: hue-rotate(50deg) saturate(100%) brightness(75%);
