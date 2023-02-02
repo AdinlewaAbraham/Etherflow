@@ -2,12 +2,11 @@ import React, { useContext, useState, useEffect, useCallback } from "react";
 import "./Send.css";
 import { Line } from "react-chartjs-2";
 import Web3 from "web3";
-
 import { TransactionContext } from "../../context/TransactionContext";
-
 import { shortenAddress } from "../../utils/shortenAddress";
 import CopyImg from "../imgs/copy-icon.svg";
-import { async } from "@firebase/util";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Chart = () => {
   const [mappedData, setmappedData] = useState([]);
@@ -55,6 +54,7 @@ export const Chart = () => {
       setmappedData(mappedData);
     }
   }, [account, transactions]);
+
   return (
     <div className="walletchart">
       <Line
@@ -126,6 +126,18 @@ export const Chart = () => {
 };
 
 const TransactionsHistory = () => {
+  
+  const notify = () =>
+    toast("Text copied!", {
+      position: "bottom-center",
+      autoClose: 500,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   const [account, setAccount] = useState("");
   const { transactions, currentAccount } = useContext(TransactionContext);
 
@@ -304,7 +316,7 @@ const TransactionsHistory = () => {
                                 await navigator.clipboard.writeText(
                                   transaction.addressFrom
                                 );
-                                console.log("Text copied to clipboard");
+                                notify();
                               } catch (err) {
                                 console.error("Failed to copy text: ", err);
                               }
@@ -329,7 +341,7 @@ const TransactionsHistory = () => {
                                 await navigator.clipboard.writeText(
                                   transaction.addressTo
                                 );
-                                console.log("Text copied to clipboard");
+                                notify();
                               } catch (err) {
                                 console.error("Failed to copy text: ", err);
                               }

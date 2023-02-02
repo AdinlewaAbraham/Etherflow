@@ -35,8 +35,10 @@ const Midsection = () => {
   return (
     <div>
       <div className="aboutetherflow">
-        <img src={etherflowimg} alt="" data-aos="fade-right" />
-        <div data-aos="fade-up">
+        <div className="aboutetherflowimgdiv" data-aos="fade-right">
+          <img src={etherflowimg} alt="" className="aboutetherflowimg" />
+        </div>
+        <div data-aos="fade-up" className="aboutetherflowdesc">
           <h1>
             About <span style={{ textTransform: "uppercase" }}>Etherflow</span>
           </h1>
@@ -53,6 +55,7 @@ const Midsection = () => {
             thanks to the decentralized nature of the Ethereum blockchain. Our
             ultimate goal is to make the use of Ethereum more accessible to
             everyone.
+            <br />
             <button>Get Started</button>
           </p>
         </div>
@@ -102,17 +105,14 @@ const Midsection = () => {
             to a more efficient and user-friendly experience.
           </p>
         </div>
-        <div data-aos="fade-left">
-          <img className="purplefilter" src={bene} alt="" />
+        <div className="addbendivimgdiv" data-aos="fade-left">
+          <img className="addbendivimg" src={bene} alt="" />
         </div>
       </div>
       <div className="addbendiv">
-        <img
-          className="purplefilterchart"
-          src={chartimg}
-          alt=""
-          data-aos="fade-right"
-        />
+        <div className="chartdivimgdiv" data-aos="fade-right">
+          <img className="chartdivimg" src={chartimg} alt="" />
+        </div>
         <div className="addbendivdesc" data-aos="fade-left">
           <h1>Explore Your Transactions with Ease</h1>
           <p>

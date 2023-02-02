@@ -8,6 +8,7 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth, signOut } from "firebase/auth";
 import Logo from "../logo/Logo";
 
+import { useNavigate } from "react-router-dom";
 const firebaseConfig = {
   apiKey: "AIzaSyBfov3VF_pR4J-9-kypPWTRb4mCEsThGaA",
   authDomain: "contact-8a1b2.firebaseapp.com",
@@ -23,16 +24,19 @@ const db = getFirestore();
 const auth = getAuth();
 const user = auth.currentUser;
 const Navbar = () => {
+  const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
   const [isuser, setisuser] = useState(false);
 
+  const [photoURL, setphotoURL] = useState();
+
   const getUserStatteCallback = useCallback(async () => {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged(async (user) => {
       if (user) {
-        console.log("user sined in");
         setisuser(true);
+        const photoURL = user.photoURL;
+        setphotoURL(photoURL);
       } else {
-        console.log("user sined out");
         setisuser(false);
       }
     });
@@ -40,6 +44,19 @@ const Navbar = () => {
   useEffect(() => {
     getUserStatteCallback();
   }, [getUserStatteCallback]);
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (e.target.closest( ".navrow") === null) {
+        setShowDropdown(false);
+      } else {
+      }
+    };
+    document.addEventListener("click", handleClick);
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, [setShowDropdown]);
+
 
   return (
     <nav>
@@ -56,12 +73,12 @@ const Navbar = () => {
         {isuser && (
           <div className="navrow">
             <img
-              src={NoUserPic}
-              alt="User Profile Picture"
+              src={photoURL}
+              alt={NoUserPic}
               onClick={() => setShowDropdown(!showDropdown)}
             />
             {showDropdown && (
-              <div className="dropdown">
+              <div className="logoutdropdown">
                 <button
                   onClick={() => {
                     auth
@@ -82,7 +99,14 @@ const Navbar = () => {
         )}
         {!isuser && (
           <div className=".link">
-            <Link to="/signin">Signin</Link>
+            <button
+              onClick={() => {
+                navigate("/signin");
+              }}
+            >
+              {" "}
+              Signin
+            </button>
           </div>
         )}
       </div>

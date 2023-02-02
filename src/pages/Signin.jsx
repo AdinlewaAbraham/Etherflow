@@ -29,7 +29,7 @@ const Signup = () => {
     auth.onAuthStateChanged((user) => {
       if (user) {
         console.log("User is signed in.");
-        navigate(-1);
+        navigate("/send");
         console.log("failed navi");
       } else {
         console.log("User is not signed in.");

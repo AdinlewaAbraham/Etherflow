@@ -478,19 +478,25 @@ const Contact = () => {
                         minLength="10"
                         maxLength="30"
                         type="text"
-                        onChange={(e) => seteditinputname(e.target.value)}
+                        onChange={(e) => {
+                          seteditinputname(e.target.value);
+                          setuncompleteeditform(false);
+                        }}
                         value={editinputname}
                       />
                       <input
                         placeholder="address"
                         type="text"
-                        onChange={(e) =>
-                          seteditinputwalletaddress(e.target.value)
-                        }
+                        onChange={(e) => {
+                          seteditinputwalletaddress(e.target.value);
+                          setuncompleteeditform(false);
+                        }}
                         value={editinputwalletaddress}
                       />
                       {uncompleteeditform && (
-                        <p style={{ color: "red" }}>Please fill out the form.</p>
+                        <p style={{ color: "red" }}>
+                          Please fill out the form.
+                        </p>
                       )}
                       <button id={id} name={name} onClick={handleUpdate}>
                         update

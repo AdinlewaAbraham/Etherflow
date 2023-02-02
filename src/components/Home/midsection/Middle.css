@@ -35,6 +35,24 @@
   height: 70px;
 }
 
+.addbendivimgdiv{
+  width: 50%;
+}
+.addbendivimg{
+  filter: hue-rotate(50deg) saturate(100%) brightness(75%);
+  width: 100%;
+  object-fit: cover;
+}
+.chartdivimgdiv{
+  width:40%;
+
+}
+.chartdivimg{
+  filter: hue-rotate(40deg) saturate(100%) brightness(75%);
+  width: 100%;
+  object-fit: cover;
+
+}
 .addbendiv {
   display: flex;
   justify-content: space-between;
@@ -42,10 +60,6 @@
 }
 .addbendiv h1 {
   font-size: 15px;
-}
-.addbendiv img {
-  width: 500px;
-  object-fit: cover;
 }
 .addbendivdesc {
   width: 60%;
@@ -67,8 +81,12 @@
   text-align: left;
   margin-bottom: 100px;
 }
-.aboutetherflow img {
-  width: 500px;
+.aboutetherflowimgdiv{
+  width: 170%;
+  margin-right: 30px;
+}
+.aboutetherflowimg {
+  width: 100%;
   margin-right: 30px;
 }
 .aboutetherflow h1 {
@@ -95,18 +113,5 @@
 .aboutetherflow button:hover {
   background-color: #5f22d9;
 }
-.purplefilter {
-  filter: hue-rotate(50deg) saturate(100%) brightness(75%);
-}
-.purplefilterchart {
-  filter: hue-rotate(40deg) saturate(100%) brightness(75%);
-}
-.chartprodiv{
-  display: flex;
-}
-.chartprodiv img {
-  width: 40%;
-}
-
 
 
