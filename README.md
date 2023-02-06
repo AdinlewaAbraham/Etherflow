@@ -6,7 +6,7 @@ Etherflow is deployed to the Goerli testnet, so you will need to have a MetaMask
 
 You can try out the dapp on the following link: https://etherflow-adinlewaabraham.vercel.app/
 
-Please note that as a dapp, Etherflow runs on the Ethereum blockchain, so you will need to pay gas fees for transactions. Additionally, please be aware that the project is still in development and may contain bugs.
+Please note that as a dapp, Etherflow runs on the Ethereum blockchain, so you will need to pay gas fees for transactions. 
 
 We welcome any contributions and feedback on the GitHub repository. If you have any questions or concerns, please open an issue and we will respond as soon as possible.
 
