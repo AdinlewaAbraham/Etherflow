@@ -1,7 +1,11 @@
-.main{
+.homebody {
+  padding: 0 100px;
+}
+.main {
   display: flex;
   align-items: center;
   margin: 120px 0px 100px 0px;
+  justify-content: space-between;
 }
 .flexRow {
   display: flex;
@@ -11,11 +15,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 .description {
   width: 616px;
   user-select: none;
-  margin-right: 20px;
+  margin-right: 60px;
+  z-index: 2;
 }
 .header {
   font-size: 60px;
@@ -29,7 +35,7 @@
   color: grey;
   font-size: 15px;
 }
-.startNow:hover{
+.startNow:hover {
   background-color: #5f22d9;
 }
 .startNow {
@@ -61,6 +67,66 @@
   opacity: 0.5;
   filter: blur(70px);
 }
-.earth{
-  margin-right: 90px;
+@media (max-width: 1270px) {
+  .homebody {
+    padding: 0 50px;
+  }
+
+  .description {
+    margin-right: 50px;
+  }
+}
+@media (max-width: 1262px) {
+  .homebody {
+    padding: 0 15px;
+  }
+  .description {
+    margin-right: 60px;
+  }
+}
+@media (max-width: 1175px) {
+  .description {
+    width: 50%;
+    margin-right: 50px;
+  }
+  .header {
+    font-size: 45px;
+    line-height: 50px;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  .subHeader {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .description {
+    margin-top: 60px;
+  }
+  .header {
+    font-size: 50px;
+  }
+  .subHeader {
+    font-size: 15px;
+  }
+  .ReactEarth {
+    position: absolute;
+    top: 0;
+    left: 20%;
+  }
+  .content {
+    justify-content: center;
+  }
+  .main {
+    margin-top: 20px;
+  }
+  .buttondiv {
+    justify-content: center;
+  }
+  .centerme {
+    justify-content: center;
+    display: flex;
+    text-align: center;
+  }
 }

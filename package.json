@@ -3,6 +3,7 @@
   "name": "wave-app",
   "version": "0.0.0",
   "scripts": {
+    "postbuild": "purgecss --css build/static/css/*.css --content build/index.html build/static/js/*.js --output build/static/css",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "dev": "vite",
@@ -47,6 +48,7 @@
     "web3": "^1.8.1"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
     "@vitejs/plugin-react": "^1.0.0",
     "eslint": "^8.4.1",
     "eslint-config-airbnb": "^19.0.2",

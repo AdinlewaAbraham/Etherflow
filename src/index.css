@@ -6,6 +6,7 @@
   color: white;
   box-sizing: border-box;
   font-smooth: subpixel-antialiased;
+  scroll-behavior: smooth;
 }
 
 body {

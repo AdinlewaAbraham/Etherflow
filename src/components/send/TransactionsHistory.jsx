@@ -201,6 +201,7 @@ const TransactionsHistory = () => {
     currency: "USD",
     minimumFractionDigits: 2,
   });
+  console.log(sortedMappedData)
   return (
     <div className="transactions">
       <div
@@ -217,6 +218,7 @@ const TransactionsHistory = () => {
         ) : (
           <div>
             {sortedMappedData.length === 0 ? (
+              
               <div className="notransactions">
                 <h1>You currently have no transactions.</h1>
               </div>

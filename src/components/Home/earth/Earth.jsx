@@ -20,6 +20,7 @@ const earth = () => {
       style={{ cursor: cursor }}
     >
       <React3dEarth
+      className="ReactEarth"
         style={{
           width: "472px",
           height: "480px",

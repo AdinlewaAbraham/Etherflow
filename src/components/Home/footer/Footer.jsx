@@ -9,7 +9,7 @@ const footer = () => {
     <div>
       <div className="footerwavewrapper">
         <div className="footerwave">
-          <img src={Wave} alt="" />
+          <img style={{width:"100%"}} src={Wave} alt="" />
         </div>
       </div>
       <footer>
