@@ -38,6 +38,7 @@ const user = auth.currentUser;
 let colRef = collection(db, "contact");
 
 import UserIcon from "../imgs/user.svg";
+import Addicon from "../imgs/add-symbol-svgrepo-com.svg";
 
 const ContactComp = (p) => {
   const [showDropdown, setShowDropdown] = useState(p.show);
@@ -63,7 +64,7 @@ const ContactComp = (p) => {
     <AnimatePresence>
       <div className="contactcard">
         <div className="contactspace">
-          <div style={{ marginRight: "30px" }}>
+          <div>
             <img src={UserIcon} alt="" />
             <div>
               <p className="name">{p.name}</p>
@@ -349,7 +350,7 @@ const Contact = () => {
                     setshowAddContactForm(!showAddContactForm);
                   }}
                 >
-                  +
+                  <img src={Addicon} alt="" />
                 </div>
               </div>
             </div>

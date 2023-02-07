@@ -14,7 +14,6 @@
   height: 600px;
   margin-bottom: 50px;
 }
-/* th */
 .sendformdiv {
   width: 70%;
   height: 100%;
@@ -278,11 +277,9 @@ th {
 .add {
   cursor: pointer;
   display: flex;
-  padding: 0px 0px 10px 0px;
+  padding: 10px;
   font-size: 50px;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
   justify-content: center;
   align-items: center;
   margin: 10px;
@@ -294,6 +291,14 @@ th {
 .add:hover {
   background-color: grey;
 }
+.add img {
+  width: 30px;
+}
+.sortimg {
+  width: 40px;
+  object-fit: cover;
+  cursor: pointer;
+}
 .button {
   width: 100%;
   text-align: left;
@@ -302,17 +307,12 @@ th {
 .oprow {
   display: flex;
 }
-.sortimg {
-  width: 38px;
-  object-fit: cover;
-  cursor: pointer;
-}
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
+/* nosubmit */
 .red {
   background-color: red;
   text-align: center;
@@ -387,7 +387,6 @@ th {
 .notconnected button:hover {
   background-color: #5f22d9;
 }
-
 @media (max-width: 500px) {
   .qrcodediv {
     background-color: rgb(27, 26, 26);
@@ -422,7 +421,7 @@ form.nosubmit {
 
 input.nosubmit {
   color: black;
-  width: 150px;
+  width: 70%;
   border: 1px solid rgb(100, 93, 93);
   display: block;
   padding: 9px 4px 9px 40px;
@@ -554,3 +553,39 @@ input.sendformcheckbox::before {
 button {
   transition: all 300ms ease-in;
 }
+
+@media (max-width: 1270px) {
+  .sendcard {
+    padding: 0 50px;
+  }
+}
+
+@media (max-width: 1262px) {
+  .sendcard {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 1030px) {
+  .flexdiv {
+    flex-direction: column;
+  }
+  .sendformdiv {
+    width: 100%;
+  }
+
+  .flexdiv {
+    height: auto;
+  }
+  .contact {
+    margin: 0;
+  }
+  .contactdiv {
+    margin: 0;
+  }
+
+  .contactdiv {
+    width: 100%;
+  }
+}
+/* transactions */

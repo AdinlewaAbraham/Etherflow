@@ -32,7 +32,7 @@ const SendMain = () => {
         <h1 className="senddivlabel">Transaction History </h1>
         <TransactionsHistory />
       </div>
-      <p style={{color: "rgb(26, 22, 22)"}}> you cant see me</p>
+      <p style={{ color: "rgb(26, 22, 22)" }}> you cant see me</p>
     </div>
   ) : (
     <div className="notconnectedsend">
